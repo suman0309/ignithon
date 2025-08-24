@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XylemCSCIS - Food Donation Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="loginPage" class="login-page">
+        <div class="login-container">
+            <div class="login-header">
+                <h1 class="login-logo">XylemCSCIS</h1>
+                <p class="login-subtitle">Choose Your Role</p>
+            </div>
+            
+            <div class="role-selection">
+                <div class="role-card donor-card" onclick="selectRole('donor')">
+                    <div class="role-icon">🍽️</div>
+                    <h2>I'm a Donor</h2>
+                    <p>I want to donate food to help others</p>
+                    <div class="role-description">
+                        <ul>
+                            <li>Share surplus food</li>
+                            <li>Reduce food waste</li>
+                            <li>Help communities</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="role-card ngo-card" onclick="selectRole('ngo')">
+                    <div class="role-icon">🏢</div>
+                    <h2>I'm an NGO</h2>
+                    <p>I need food for my organization</p>
+                    <div class="role-description">
+                        <ul>
+                            <li>Request food items</li>
+                            <li>Serve communities</li>
+                            <li>Connect with donors</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="login-footer">
+                <p>Join us in making a difference through food donation</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="main-content hidden">
+        <div class="container">
+            <header>
+                <div class="header-content">
+                    <div class="logo-section">
+                        <h1 class="main-logo">XylemCSCIS</h1>
+                        <p class="tagline">Connecting Hearts Through Food Donation</p>
+                    </div>
+                </div>
+            </header>
+
+            <div class="forms-container">
+                <!-- Donor Form -->
+                <div class="form-section donor-section">
+                    <div class="form-header">
+                        <div class="form-icon">🍽️</div>
+                        <h2>Donor Form</h2>
+                        <p>Share your food with those in need</p>
+                    </div>
+                    <form id="donorForm" class="form">
+                        <div class="form-group">
+                            <label for="foodType">Food Type:</label>
+                            <input type="text" id="foodType" name="foodType" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="quantity">Quantity:</label>
+                            <input type="text" id="quantity" name="quantity" placeholder="e.g., 5 kg, 10 packets" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="expiryTime">Expiry Time (hours):</label>
+                            <input type="number" id="expiryTime" name="expiryTime" min="1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="donorLocation">Location:</label>
+                            <input type="text" id="donorLocation" name="location" placeholder="Enter your location" required>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn donor-btn">
+                            <span class="btn-icon">🍽️</span>
+                            <span class="btn-text">Submit Donation</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- NGO Form -->
+                <div class="form-section ngo-section">
+                    <div class="form-header">
+                        <div class="form-icon">🏢</div>
+                        <h2>NGO Form</h2>
+                        <p>Request food for your organization</p>
+                    </div>
+                    <form id="ngoForm" class="form">
+                        <div class="form-group">
+                            <label for="ngoName">NGO Name:</label>
+                            <input type="text" id="ngoName" name="ngoName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="foodNeeded">Food Needed:</label>
+                            <input type="text" id="foodNeeded" name="foodNeeded" placeholder="e.g., Rice, Bread, Vegetables" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="ngoLocation">Location:</label>
+                            <input type="text" id="ngoLocation" name="location" placeholder="Enter NGO location" required>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn ngo-btn">
+                            <span class="btn-icon">🏢</span>
+                            <span class="btn-text">Submit Request</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Success Message -->
+            <div id="successMessage" class="success-message hidden">
+                <div class="success-content">
+                    <div class="success-icon">🎉</div>
+                    <h3>Success!</h3>
+                    <p id="successText"></p>
+                    <button onclick="hideSuccessMessage()" class="close-btn">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
