@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Food Donation Platform
 
 A simple web application that connects food donors with NGOs to reduce food waste. Built with HTML, CSS, JavaScript, and Firebase Firestore.
@@ -128,3 +129,7 @@ Each document includes:
 ## License
 
 This project is open source and available under the MIT License.
+=======
+# ignithon
+kit hackathon
+>>>>>>> 2e9bed8c9fcafc34f7be79d8347dabe92c98a6a0
